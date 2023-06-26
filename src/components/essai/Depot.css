@@ -1,0 +1,49 @@
+.restaurant-depot {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-content: center;
+    margin-left:50px ;
+    margin-right: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  
+  .restaurant {
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+  
+  .restaurant img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .restaurant-depot {
+      grid-template-columns: repeat(2, 1fr);
+      margin-right: 150px;
+      margin-left: 150px;
+    }
+}
+    @media (min-width: 768px) {
+        .restaurant-depot {
+          grid-template-columns: repeat(2, 1fr);
+          margin-right: 50px;
+          margin-left: 50px;
+        }
+  }
+  @media (min-width: 1024px) {
+    .restaurant-depot {
+
+      margin-right: 150px;
+      margin-left: 150px;
+    }
+}

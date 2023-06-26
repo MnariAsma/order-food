@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./acceuil.css">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div ng-if="($state.current.name != 'registration')" class="empty_heder  search-header fixed-head" >
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- ngIf: ($state.current.name != 'driver-registration') && ($state.current.name != 'driver-registration') && ($state.current.name != 'driver_dashboard') && ($state.current.name != 'driver_profile') && ($state.current.name != 'driver_delivery') && ($state.current.name != 'driver_earnings') && ($state.current.name != 'payout') --><div class="col-sm-6 col-md-3 ng-scope" ng-if="($state.current.name != 'driver-registration') &amp;&amp; ($state.current.name != 'driver-registration') &amp;&amp; ($state.current.name != 'driver_dashboard') &amp;&amp; ($state.current.name != 'driver_profile') &amp;&amp; ($state.current.name != 'driver_delivery') &amp;&amp; ($state.current.name != 'driver_earnings') &amp;&amp; ($state.current.name != 'payout')">
+                    <div class="navbar-header logo-head">
+                        <!-- ngIf: ($state.current.name == 'search') && (viewportChecker.width >= 1024) --><a ng-if="($state.current.name == 'search') &amp;&amp; (viewportChecker.width >= 1024)" href="" ng-click="gotolanding2()" class="ng-scope" style=""><img src="app/site/public/images/arrow-back.svg" class="back-arrow" alt=""></a><!-- end ngIf: ($state.current.name == 'search') && (viewportChecker.width >= 1024) -->
+                        <a href="javascript:void(0)" class="navbar-brand" ng-click="gotolanding()"><img alt="images" class="img-responsive serach-list-Pages" src="https://cdn.vectorstock.com/i/preview-1x/54/00/red-color-inserted-label-with-word-order-now-vector-45405400.jpg"></a>
+                    </div>
+                </div><!-- end ngIf: ($state.current.name != 'driver-registration') && ($state.current.name != 'driver-registration') && ($state.current.name != 'driver_dashboard') && ($state.current.name != 'driver_profile') && ($state.current.name != 'driver_delivery') && ($state.current.name != 'driver_earnings') && ($state.current.name != 'payout') -->
+                <!-- ngIf: (Drivername =='') && ($state.current.name == 'driver-registration') || ($state.current.name == 'forgotReturn') -->
+                <!-- ngIf: (Drivername != '') && (($state.current.name == 'driver-registration') || ($state.current.name == 'driver_dashboard') || ($state.current.name == 'driver_profile') || ($state.current.name == 'driver_delivery') || ($state.current.name == 'driver_earnings') || ($state.current.name == 'payout')) -->
+                <!-- ngIf: ($state.current.name == 'search') --><div ng-if="($state.current.name == 'search')" class="col-sm-6 col-md-9  ng-scope" style="">
+                    <!-- ngIf: ($state.current.name == 'search') && (viewportChecker.width >= 1024) --><div ng-if="($state.current.name == 'search') &amp;&amp; (viewportChecker.width >= 1024)" ng-controller="userSearchBoxCtrl as USBC" id="userSearchBoxCtrl" class="nav navbar-nav desktop-header-search ng-scope" style="">
+                        <div class="serach-fullfilter ">
+                            <!-- ngIf: viewportChecker.width >= 1024 --><div ng-if="viewportChecker.width >= 1024" class="col-sec navbar-search  ng-scope">
+                                <div class="header-sear">
+                                    <div ng-click="USBC.openMapCurrentLocation(searchLocation)" class="sear-location">
+                                        <label class="ng-binding">Lieu de livraison</label>
+                                        <!-- ngIf: searchLocation.name != '' --><h6 ng-if="searchLocation.name != ''" class="ng-binding ng-scope"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            Monastir, Tunisie </h6><!-- end ngIf: searchLocation.name != '' -->
+                                            <p>changer</p>
+    
+                                    </div>
+                                    <div class="serach-location-dropdown serach-location-dropdown-inactive">
+                                        <div class="locat-inputs">
+                                            <div class="drop-header">
+                                                <h5 class="ng-binding">Rechercher un autre lieu</h5>
+                                            </div>
+                                            <div class="ser-another-loaction">
+                                                <div class="sear-input">
+                                                    <input type="text" places-auto-complete="" component-restrictions="{country:['dz','tn','ma']}" ng-model="USBC.name" types="(regions)" on-place-changed="USBC.midpointChanged()" ng-blur="USBC.removeContainer()" class="form-control ng-pristine ng-untouched ng-valid ng-empty pac-target-input" placeholder="Entrez le lieu de livraison" autocomplete="off">
+                                                </div>
+                                                <div ng-click="USBC.locateMe()" class="current-location">
+                                                    <span class="ng-binding"><i class="fa fa-location-arrow" aria-hidden="true"></i> Votre position</span>
+                                                </div>
+                                                <div class="pac-container pac-logo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end ngIf: viewportChecker.width >= 1024 -->
+                            <!-- ngIf: viewportChecker.width >= 1024 --><script ng-if="viewportChecker.width >= 1024" type="text/ng-template" id="customTemplate.html" class="ng-scope">
+                                <div typeahead-inner-html class="saerch-rest">
+                                    <div class="arrow-mark"></div>
+                                    <div class="location-headings search-result-holder search-result-not-found"><h4>
+                                        {{matches.length > 0 ? 'Restaurant' : 'Not found'}}</h4></div>
+                                    <div class="showing-result">
+                                        <ul ng-if="matches.length > 0" id="header-lcserach-result"
+                                            class="search-result-holder search-result">
+                                            <li ng-repeat="match in matches track by $index" class="sera-res">
+                                                <div ng-click="searchSelectedItem(match)" class="sear-left">
+                                                    <a href="">
+                                                        <img check-restaurant-thumb-image ng-src="{{match.model.avatar}}"
+                                                             alt="{{match.model.restaurantname}}">
+                                                    </a>
+                                                </div>
+                                                <div ng-click="searchSelectedItem(match)" class="sear-right">
+                                                    <h4><a href="#">{{match.model.restaurantname}}</a></h4>
+                                                    <p><a href="#">{{match.model.main_cuisine.length > 0 ?
+                                                        (match.model.main_cuisine | joinBy :'name':', ') : '&nbsp;'}} </a>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul ng-if="matches.length == 0" id="header-lcserach-result"
+                                            class="search-result search-result-not-found not-found">
+    
+                                        </ul>
+                                    </div>
+                                    <div ng-if="matches.length > 0" class="search-footer"><p>
+                                        <a ng-click="searchAllItem(query)" href="javascript:void(0)"><i class="fa fa-search"
+                                                                                                        aria-hidden="true"></i>
+                                            Show all results for &quot; {{query}} &quot;</a></p></div>
+                                </div>
+    
+    
+                            </script><!-- end ngIf: viewportChecker.width >= 1024 -->
+                            <!-- ngIf: viewportChecker.width >= 1024 --><div ng-if="viewportChecker.width >= 1024" class="col-secpart ng-scope">
+                                <div class="header-lcserach">
+                                    <!-- <input type="text" ng-model="search.query" placeholder="Serach for restaurants, dishes or cuisines" ng-enter="searchItem()" uib-typeahead="c as c.restaurantname for c in loadproduct($viewValue)" typeahead-template-url="customTemplate.html" class="form-control" name="searchQuery" id="searchQuery" typeahead-on-select='onSelectPart($item, $model, $label)'  typeahead-show-hint="true" typeahead-wait-ms="1" typeahead-min-length="0" typeahead-focus  typeahead-append-to="'#header-lcserach-result'" > -->
+                                    <div style="position: relative;"><input type="text" ng-model="search.query" placeholder="" uib-typeahead="c as c.restaurantname for c in loadproduct($viewValue)" class="form-control search-box-input ng-pristine ng-untouched ng-valid" name="searchQuery" typeahead-show-hint="true" typeahead-wait-ms="1" typeahead-min-length="3" typeahead-focus-first="true" typeahead-popup-template-url="customTemplate.html" typeahead-on-select="searchItem($item, $model, $label, $event)" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-425-3883" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255); color: rgb(153, 153, 153);"><input type="text" id="search_query" ng-model="search.query" placeholder="Rechercher des restaurants, plats et cuisines" uib-typeahead="c as c.restaurantname for c in loadproduct($viewValue)" class="form-control search-box-input ng-pristine ng-untouched ng-valid ng-empty" name="searchQuery" typeahead-show-hint="true" typeahead-wait-ms="1" typeahead-min-length="3" typeahead-focus-first="true" typeahead-popup-template-url="customTemplate.html" typeahead-on-select="searchItem($item, $model, $label, $event)" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-425-3883" style="position: relative; vertical-align: top; background-color: transparent;"><div typeahead-inner-html="" class="saerch-rest ng-isolate-scope" uib-typeahead-popup="" id="typeahead-425-3883" matches="matches" active="activeIdx" select="select(activeIdx, evt)" move-in-progress="moveInProgress" query="query" position="position" assign-is-open="assignIsOpen(isOpen)" debounce="debounceUpdate" popup-template-url="customTemplate.html" style="display: none;">
+                                <div class="arrow-mark" style="display: none;"></div>
+                    <div class="location-headings search-result-holder search-result-not-found" style="display: none;"><h4 class="ng-binding">Not found</h4></div>
+                    <div class="showing-result">
+                        <!-- ngIf: matches.length > 0 -->
+                        <!-- ngIf: matches.length == 0 --><ul ng-if="matches.length == 0" id="header-lcserach-result" class="search-result search-result-not-found not-found ng-scope" style="display: none;">
+    
+                                      </ul><!-- end ngIf: matches.length == 0 -->
+                                    </div>
+                                    <!-- ngIf: matches.length > 0 -->
+                            </div></div>
+                                    <button>Chercher</button>
+                                </div>
+                            </div><!-- end ngIf: viewportChecker.width >= 1024 -->
+    
+                            <div class="header-seracbut">
+                                <div class="btn-yurcart">
+                                    <button type="button" class="btn btn-default dropdown-toggle cart ">
+                                        <!-- ngIf: cartDetails.cart_details.length > 0 -->
+                                    </button>
+                                    <div class="dropdown-menu checkout-details-outter">
+                                        <!-- <div ng-if = "!cartDetails._id" class="checkout-details new_res_chk emptycartbg">
+                                  <div class="detial_cat">
+                                        <div class="empty-food-quotes">
+                                        <p>I like food. I like eating. And I don't want to deprive myself of good food.
+                                        <span>- Sarah Michelle Gellar</span></p>
+                                        </div>
+                                        <div class="promo-dev">
+                                            <div class="btn_order_now">
+                                            <button disabled type="button" class="btn btn_order_nw">Order Now</button>
+                                            </div>
+                                        </div>
+                                  </div>
+                          </div>
+                 <div ng-if = "cartDetails._id" class="checkout-details new_res_chk ">
+                                  <div class="del_add">
+                                     <h2 title = "{{cartDetails.name}}">{{cartDetails.name}}</h2>
+    
+                                    </div>
+                                    <div class="detial_cat">
+                                      <ul class="chc-det">
+                                         <li ng-repeat="food in cartDetails.cart_details " >
+                                            <div class="order_menu">
+                                              <h3><span class="ord_heading">{{$index + 1}}. {{food.name}} </span><span ng-click = "rc.removeFoodFromCart(food)"class="ord_del"><img src="app/site/public/images/delete.png" alt="images" class="img-responsive"></span></h3>
+                                              <p><span class="menu_det {{food.addons.length > 0 ?'active' : ''}}">{{food.addons.length > 0 ? (food.addons | joinBy :'name':',') : ''}}</span><span class="menu_price">${{food.total}}</span></p>
+                                            </div>
+    
+                                         </li>
+                                         <li>
+                                            <div class="total">
+                                              <p><span class="sub-to">Subtotal</span><span class="sub-amt">${{cartDetails.total}}</span></p>
+                                              <p><span class="sub-to">Delivery fee</span><span class="sub-amt">$0</span></p>
+                                              <p><span class="sub-to">TOTAL</span><span class="sub-amt">${{cartDetails.total}}</span></p>
+    
+                                            <div>
+                                         </li>
+                                      </ul>
+                                      <div class="promo-dev">
+                                      <div ng-if="username ==''" ng-controller = "userLoginRegisterCtrl as ULRC" class="btn_order_now">
+                                         <button ng-click = "ULRC.LoginUser()" type="button" class="btn btn_order_nw">Order Now</button>
+                                      </div>
+                                      <div ng-if="username !=''" class="btn_order_now">
+                                         <button  ng-click = "URC.gotoCheckout()" type="button" class="btn btn_order_nw">Order Now</button>
+                                      </div>
+                                      </div>
+                                    </div>
+                                 </div> -->
+                                        <!-- ngIf: !cartDetails._id --><div ng-if="!cartDetails._id" class="checkout-cart-wrap ng-scope">
+                                            <!-- <div class="checkout-cart-header">
+                                                            <img src="app/site/public/images/details-menu.png" alt="" class="img-responsive">
+                                                            <h3 title = "Your Cart" class="restaurant-name">Your Cart</h3>
+                                                        </div> -->
+                                            <div class="checkout-cart-body new_res_chk emptycartbg ">
+                                                <div class="detial_cat">
+                                                    <div class="empty-food-quotes">
+                                                        <p class="ng-binding">I like food. I like eating. And I dont want to deprive myself of good food
+                                                            <span class="ng-binding">- Sarah Michelle Gellar</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- end ngIf: !cartDetails._id -->
+                                        <!-- ngIf: cartDetails._id -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ngIf: (username !='') && ($state.current.name == 'search') -->
+                            <!-- ngIf: (username =='') && ($state.current.name == 'search') --><div ng-controller="userLoginRegisterCtrl as ULRC" class="login-home ng-scope" ng-if="(username =='') &amp;&amp; ($state.current.name == 'search')">
+                                <a ng-click="ULRC.LoginUser()" href="javascript:void(0)">
+                                    <button type="button" class="btn btn-default ng-binding">
+                                        Se connecter
+                                    </button>
+                                </a>
+                            </div><!-- end ngIf: (username =='') && ($state.current.name == 'search') -->
+                        </div>
+                    </div><!-- end ngIf: ($state.current.name == 'search') && (viewportChecker.width >= 1024) -->
+                </div><!-- end ngIf: ($state.current.name == 'search') -->
+    
+                <!--user login btn-->
+                <!-- ngIf: (username =='') && ($state.current.name != 'search') && ($state.current.name != 'restaurant') && ($state.current.name != 'driver-registration') && ($state.current.name != 'driver-registration') && ($state.current.name != 'driver_dashboard') && ($state.current.name != 'driver_profile') && ($state.current.name != 'driver_delivery') && ($state.current.name != 'driver_earnings') && ($state.current.name != 'payout') && ($state.current.name != 'forgotReturn') -->
+                <!--user login btn end-->
+                <!--user account-->
+                <!-- ngIf: (username !='') && ($state.current.name != 'search')  && ($state.current.name != 'restaurant') && ($state.current.name != 'driver-registration') && ($state.current.name != 'driver_dashboard') && ($state.current.name != 'driver_profile') && ($state.current.name != 'driver_delivery') && ($state.current.name != 'driver_earnings')  && ($state.current.name != 'payout') && ($state.current.name != 'forgotReturn') -->
+                <!--user account end-->
+                <!--driver login btn-->
+                <!-- ngIf: (Drivername =='') && ($state.current.name == 'driver-registration') -->
+                <!-- driver login btn end-->
+                <!--driver account-->
+                <!-- ngIf: (Drivername != '') && (($state.current.name == 'driver-registration') || ($state.current.name == 'driver_dashboard') || ($state.current.name == 'driver_profile') || ($state.current.name == 'driver_delivery') || ($state.current.name == 'driver_earnings') || ($state.current.name == 'payout')) -->
+                <!--driver account end-->
+        </div></nav>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantarell&family=Raleway:wght@200&display=swap');
+:root {
+  --bleu: #3a6cf4;
+  --gwhite: rgb(230, 230, 230);
+  --pbleu: #601cfc;
+  --yellow: #8a2b06;
+}
+
+p {
+  font-weight: 300;
+  color: rgb(17, 17, 17);
+}
+
+* {
+  font-family: cantarelle, Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+
+
+/*Menu Page style*/
+
+.leftCol h2 {
+  margin-bottom: 20px;
+  font-size: 1.6em;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.leftCol h2 span {
+  color: var(--yellow);
+  font-size: 1.3em;
+  font-weight: 700;
+}
+#Contact p{
+    color: #111;
+}
+.titre {
+  text-align: center;
+  width: 100%;
+}
+#menu .contenu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#menu .contenu .box {
+  width: 320px;
+  margin: 20px;
+  border: 20px solid white;
+  box-shadow: 20px 15px 35px rgba(0, 0, 0, 0.7);
+}
+#menu .contenu .box .img {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+#menu .contenu .box img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+#menu .contenu .box .text h3 {
+  text-align: center;
+  font-size: 1em;
+  font-weight: 300;
+  color: #111;
+}
+#menu{
+  background-color: rgba(255, 255, 255, 0.8);
+}
+/* Reservation page style */
+
+
+#formContact button {
+  padding: 10px;
+  background-color: #8a2b06;
+  font-size: 1.2em;
+  font-weight: 550;
+  border: none;
+  margin-top: 30px;
+  width: 100%;
+}
+#formContact button:hover {
+  background-color: #8a2b06;
+}
+#formContact button:active {
+  background-color: #8a2b06;
+}
+/* main {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  margin: 30px;
+} */
+
+
+
+#formContact div div {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#formContact main {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  margin: 30px;
+}  
+
+@media screen and (max-width: 991px) {
+  .leftCol h2 {
+    font-size: 1.3em;
+    font-weight: 300;
+  }
+
+  #Contact .contenu {
+    margin-left: 25%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #formContact form {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  #formContact.contact form button {
+    grid-column: span 2;
+  }
+}
+
+#Contact {
+  background: url(../../assets/img-form.jpg) no-repeat fixed;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  padding-top: 5px;
+}
+#Contact .contenu {
+  background-color: #fff;
+  padding: 75px 50px;
+  box-shadow: rgba(0, 0, 0, 0.8);
+  max-width: 500px;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 40px 0 35%;
+}
+
+#Contact .contenu form input,
+#Contact .contenu form textarea {
+  width: 100%;
+  border: 1px solid #555;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #111;
+  outline: none;
+  font-size: 16px;
+  font-weight: 300;
+  resize: none;
+}
+#Contact .contenu form .bt[type='submit'] {
+  font-weight: 600;
+  font-size: 1em;
+  background-color: var(--yellow);
+  border: none;
+  color: #fff;
+  display: inline-block;
+  text-transform: uppercase;
+  outline: none;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  max-width: 120px;
+}
+
+@media screen and (max-width: 480px) {
+  #Contact .continue {
+    margin-left: 15%;
+  }
+}
